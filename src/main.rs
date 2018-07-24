@@ -122,7 +122,7 @@ fn report(connection: Connection) {
     let mut i = 0;
     let rows = connection.query(REPORT, &[]).unwrap();
     if rows.len() == 0 {
-        println!("no lock have been detected ");
+        println!("no lock have been detected 🎉");
         return;
     }
     for row in &rows {
@@ -134,7 +134,7 @@ fn report(connection: Connection) {
             query: row.get(4),
             age: row.get(5),
         };
-        println!("#{}\t{}\t{}\t{}\t{}\t{}\t{}", i, lock.pid, lock.db, lock.relation, lock.started_at, lock.query, lock.age);
+        println!("🔒{}\t{}\t{}\t{}\t{}\t{}\t{}", i, lock.pid, lock.db, lock.relation, lock.started_at, lock.query, lock.age);
         i = i + 1;
     }
 }
